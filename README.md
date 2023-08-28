@@ -41,6 +41,9 @@ export USER_NAME=$(gcloud config get-value account)
 git config --global user.email ${USER_NAME}
 git config --global user.name ${USER_NAME_SPLIT=($(echo $USER_NAME | tr "@" "\n"));echo ${USER_NAME_SPLIT[0]}}
 ```
+- Add Respository
+- Create new Repository
+
 <p align="left">
 <img src="/doc/img/csr.png" width="800" alt="CSR" />
 </p>
