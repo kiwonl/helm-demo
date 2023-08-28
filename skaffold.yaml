@@ -6,7 +6,6 @@ build:
      template: "latest"
   artifacts:
   - image: us-central1-docker.pkg.dev/kiwonlee-default/docker-repo/helm-cicd-image
-# - image: helm-cicd-image
     context: ./
 profiles:
 - name: dev
