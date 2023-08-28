@@ -35,6 +35,7 @@ sed -i s/PROJECT_ID/${PROJECT_ID}/g helm/prod/values.yaml
 ```
 git init
 git add .
+git commit -m "initial"
 
 # in case of Qwiklab platform
 export USER_NAME=$(gcloud config get-value account)
