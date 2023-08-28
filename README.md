@@ -8,11 +8,11 @@ gcloud services enable clouddeploy.googleapis.com
 
 1. GKE 클러스터 생성
 ```shell
-gcloud container clusters create-auto helm-demo-test --region us-central1
+gcloud container clusters create-auto helm-demo-test --region ${REGION}
 ```
 
 ```shell
-gcloud container clusters create-auto helm-demo-prod --region us-central1
+gcloud container clusters create-auto helm-demo-prod --region ${REGION}
 ```
 
 2. Artifact Registry
@@ -35,6 +35,9 @@ sed -i s/PROJECT_ID/${PROJECT_ID}/g helm/prod/values.yaml
 ```
 git init
 git add .
+
+# in case of Qwiklab platform
+export USER_NAME=$(gcloud config get-value account)
 git config --global user.email ${USER_NAME}
 git config --global user.name ${USER_NAME_SPLIT=($(echo $USER_NAME | tr "@" "\n"));echo ${USER_NAME_SPLIT[0]}}
 ```
