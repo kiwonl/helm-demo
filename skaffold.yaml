@@ -1,0 +1,27 @@
+apiVersion: skaffold/v2beta16
+kind: Config
+build:
+  tagPolicy:
+    customTemplate:
+     template: "latest"
+  artifacts:
+  - image: us-central1-docker.pkg.dev/kiwonlee-default/docker-repo/helm-cicd-image
+# - image: helm-cicd-image
+    context: ./
+profiles:
+- name: dev
+  deploy:
+    helm:
+      releases:
+      - name: devrelease
+        chartPath: helm/dev
+        valuesFiles:
+         - helm/dev/values.yaml
+- name: prod
+  deploy:
+    helm:
+      releases:
+      - name: prodrelease
+        chartPath: helm/prod
+        valuesFiles:
+         - helm/prod/values.yaml

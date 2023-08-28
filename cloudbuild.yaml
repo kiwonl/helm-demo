@@ -1,0 +1,27 @@
+steps:
+- id: 'Container image build and tagging by skaffold build'
+  name: gcr.io/k8s-skaffold/skaffold
+  args:
+    - skaffold
+    - build
+    - '--interactive=false'
+    - '--file-output=/workspace/artifacts.json'
+- name: gcr.io/google.com/cloudsdktool/cloud-sdk
+  entrypoint: gcloud
+  args:
+    [
+      "deploy", "releases", "create", "rel-${SHORT_SHA}",
+      "--delivery-pipeline", "${_DELIVERY_PIPELINE_NAME}",
+      "--description", "$(git log -1  --pretty='%s')",
+      "--region", "${_REGION}",
+      "--annotations", "commitId=${REVISION_ID}",
+      "--build-artifacts", "/workspace/artifacts.json"
+    ]
+
+substitutions:
+  _DELIVERY_PIPELINE_NAME: helm-cicd-pipeline
+  _REGION: us-central1
+
+options:
+  machineType: E2_HIGHCPU_8
+timeout: 3600s
