@@ -62,3 +62,5 @@ sed -i s/REGION/${REGION}/g clouddeploy.yaml
 gcloud deploy apply --file=clouddeploy.yaml \
   --region=${REGION}
 ```
+
+6. Cloud Build Trigger 설정
