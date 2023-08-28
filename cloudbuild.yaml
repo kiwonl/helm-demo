@@ -22,6 +22,6 @@ substitutions:
   _DELIVERY_PIPELINE_NAME: helm-demo-pipeline
   _REGION: us-central1
 
-options:
-  machineType: E2_HIGHCPU_8
-timeout: 3600s
+#options:
+#  machineType: E2_HIGHCPU_8
+#timeout: 3600s
