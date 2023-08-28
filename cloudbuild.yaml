@@ -19,7 +19,7 @@ steps:
     ]
 
 substitutions:
-  _DELIVERY_PIPELINE_NAME: helm-cicd-pipeline
+  _DELIVERY_PIPELINE_NAME: helm-demo-pipeline
   _REGION: us-central1
 
 options:
