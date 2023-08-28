@@ -1,5 +1,5 @@
 replicaCount: 1
-workloadName: dev-application
+workloadName: prod-application
 image:
   repository: us-central1-docker.pkg.dev/kiwonlee-default/docker-repo/helm-cicd-image
   tag: latest
