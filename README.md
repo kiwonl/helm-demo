@@ -8,7 +8,7 @@ gcloud services enable clouddeploy.googleapis.com
 
 1. GKE 클러스터 생성
 ```shell
-gcloud container clusters create-auto helm-demo-test --region ${REGION}
+gcloud container clusters create-auto helm-demo-dev --region ${REGION}
 ```
 
 ```shell
