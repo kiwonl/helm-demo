@@ -3,14 +3,14 @@ kind: Deployment
 metadata:
   name: {{ .Values.workloadName }}
   labels:
-    {{- include "dev-chart.labels" . | nindent 4 }}
+    {{- include "prod-chart.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "dev-chart.selectorLabels" . | nindent 6 }}
+      {{- include "prod-chart.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,7 +18,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "dev-chart.selectorLabels" . | nindent 8 }}
+        {{- include "prod-chart.selectorLabels" . | nindent 8 }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
